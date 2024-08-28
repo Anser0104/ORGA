@@ -1,0 +1,11 @@
+<aura:component >
+    <aura:attribute name="truthy" type="boolean" default="true"/>
+    <lightning:button variant="brand" label="click 	Me" title="Neutral action" onclick="{! c.handleClick }"/>
+    <br/>
+    <aura:if isTrue="{!v.truthy}">
+        this content will display if the variable is true
+        <aura:set attribute="else">
+         this content will display if the variable is false
+        </aura:set>
+    </aura:if>    
+</aura:component>

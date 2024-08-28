@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="parentinputValue" type="string"/>
+    
+    <aura:method name="callChildMethod" action="{!c.callMethod}" access="public">
+        <aura:attribute name="message" type="string"/>
+    </aura:method>
+    
+    <lightning:card title="Aura Method Child Component">
+        <p class="slds-p-horizontal_small">
+            parentinputValue===>{!v.parentinputValue}
+        </p>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,74 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <!--aura:attribute name="recordId" type="string" /-->
+    <lightning:card variant="Narrow"  title="ldsExamplec(Account)" iconName="standard:account">
+        <p class="slds-p-horizontal_small">
+            <!--lightning:recordForm
+                                  recordId="0015g00000JnGsOAAV"
+                                  objectApiName="Account"
+                                  layoutType="Full"
+                                  mode="view" /-->
+            
+            <!--lightning:recordEditForm
+                                  recordId="a005g00002xr8KcAAI"
+                                  objectApiName="College__c"
+                                     >
+                <lightning:messages  />
+
+                <lightning:inputField fieldName ="Name" />
+                <lightning:inputField fieldName ="University__c"/>
+                <lightning:inputField fieldName ="Student_Name__c"/>
+                
+            </lightning:recordEditForm-->
+            
+            <!--lightning:recordViewForm recordId="0015g00000JnGsOAAV" objectApiName="Account"  >
+                <div class="slds-box" layoutType="Full"
+                     mode="edit">
+                    <lightning:outputField fieldName="Name" />
+                    <lightning:outputField fieldName="Industry" />
+                    <lightning:outputField fieldName="ParentId" />
+                </div><br/>
+            </lightning:recordViewForm>
+            <div class="slds-box">
+                <lightning:recordForm
+                                      recordId="0015g00000JnGsOAAV"
+                                      objectApiName="Account"
+                                      layoutType="Compact"
+                                      mode="view"
+                                      columns="3"/>
+            </div-->
+            <br/>
+            <!--lightning:recordEditForm recordId="a005g00002xr8KcAAI" objectApiName="College__c">
+                <lightning:messages />
+                <lightning:inputField fieldName="Name" />
+                <lightning:inputField fieldName="University__c" />
+                <lightning:inputField fieldName="Student_Name__c" />
+                <lightning:inputField fieldName="Student_email__c" />
+                <lightning:button class="slds-m-top_small" variant="brand" type="submit" name="update" label="Update" />
+            </lightning:recordEditForm>
+            <br/>
+            
+        </p>
+    </lightning:card>
+    
+    <lightning:card variant="Narrow"  title="Insert Contact" iconName="standard:account">
+        <p class="slds-p-horizontal_small">
+            <lightning:recordEditForm aura:id="recordEditForm"
+                                      objectApiName="Contact" >
+                <lightning:messages />
+                <lightning:inputField fieldName="Name"/>
+                <lightning:button class="slds-m-top_small" type="submit" label="Create new" />
+            </lightning:recordEditForm-->
+            
+            <lightning:recordEditForm objectApiName="Account" recordId="0015g00000UCrdKAAT">
+                <lightning:messages mode="readonly" />
+                <lightning:inputField aura:id="field" fieldName="Name"/>
+                <lightning:inputField aura:id="field" fieldName="Industry" />
+                
+                <div class="slds-m-top_medium">
+                    <lightning:button label="Cancel" onclick="{!c.handleReset}" />
+                    <lightning:button type="readonly" label="update Record" />
+                </div>
+            </lightning:recordEditForm>            
+        </p>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,24 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <!--Attribute-->
+    <aura:Attribute name ="accRecord" type="Object" />
+    <aura:Attribute name ="recordLoadError" type="String" />
+    
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.recordId}"
+                      fields="Name,Industry,Number_Of_Contacts__c,Email__c"
+                      targetFields="{!v.accRecord}"
+                      targetError="{!v.recordLoadError}"
+                      />
+    <div>
+        <lightning:card iconName="Standard:Account" title="{!v.accRecord.Name}">
+            <div class="slds-p-horizontal--small">
+                <p><lightning:input label="Account Name" disabled="false" value="{!v.accRecord.Name}" /></p>
+                <p><lightning:input label="Industry" disabled="true" value="{!v.accRecord.Industry}"/></p>
+                <p><lightning:input label="Number Of Contacts" disabled="true" value="{!v.accRecord.Number_Of_Contacts__c}"/></p>
+                <p><lightning:input label="Email" disabled="true" value="{!v.accRecord.Email__c}"/></p>
+                
+            </div>
+        </lightning:card>
+    </div>
+    
+</aura:component>

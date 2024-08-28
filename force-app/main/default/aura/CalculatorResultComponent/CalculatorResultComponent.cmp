@@ -1,0 +1,11 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="result" type="integer" />
+   
+    <aura:handler event="c:CalculatorApplicationEvent" action="{!c.getResult}"/>
+    
+    <lightning:card  title="Result Section">
+        <p class="slds-p-horizontal_small">
+            final result is--->{!v.result}
+        </p>
+    </lightning:card>
+</aura:component>

@@ -1,0 +1,12 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="num1" type="integer" />
+    <aura:attribute name="num2" type="integer" />
+    <aura:attribute name="result" type="integer" />
+	<div>
+        <lightning:input type="number" name="input1" label="number1"/>
+        <lightning:input type="number" name="input2" label="number2"/>
+        <lightning:button variant="brand" label="ADD" title="Brand action"/>
+        <lightning:button variant="brand" label="SUB" title="Brand action"/>
+        <lightning:button variant="brand" label="MULTI" title="Brand action"/>
+    </div>
+</aura:component>

@@ -1,0 +1,16 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:attribute name="firstNumber" type="integer" default="0"/>
+    <aura:attribute name="secondNumber" type="integer" default="0"/>
+    
+    <aura:registerEvent name="appsEvent" type="c:CalculatorApplicationEvent"/>
+    
+    <lightning:card title="Calculator Input Section">
+        <aura:set attribute="actions">
+            <lightning:button label="Add" onclick="{!c.fireCompEvent}"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            <lightning:input type="number" name="firstNumber" label="First Number" value="{!v.firstNumber}"/>
+            <lightning:input type="number" name="secondNumber" label="Second Number" value="{!v.secondNumber}"/>
+        </p>
+    </lightning:card>
+</aura:component>

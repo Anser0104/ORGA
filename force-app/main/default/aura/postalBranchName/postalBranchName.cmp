@@ -1,0 +1,57 @@
+<aura:component controller="postalNameController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="branchName" type="String" />
+    <aura:attribute name="branchList" type="List[]" />
+    <aura:attribute name="DisplayResponse" type="List[]" />
+    <aura:attribute name="response" type="String"/>
+    <aura:attribute name="showBody" type="boolean" default="false"/>
+    <aura:attribute name="PostalType" type="String"/>
+    <lightning:card class="slds-m-around_large">
+        <lightning:input  type="text" value="{!v.branchName}" label="Branch Name" placeholder="Enter the branch Name Here..."/><br/>
+        <lightning:button variant="brand" label="Search" onclick="{!c.handleClick }"/> <br/><br/>
+        
+        Number of PostOffices: {!v.DisplayResponse.length} <br/>
+        Selected Postal Type: {!v.PostalType}<br/>
+        Entered Branch Name: {!v.branchName}<br/><br/>
+        
+        <aura:if isTrue="{!v.showBody}">
+            <table border="2">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>BranchType</th>
+                        <th>DeliveryStatus</th>
+                        <th>Circle</th>
+                        <th>District</th>
+                        <th>Division</th>
+                        <th>Region</th>
+                        <th>Pincode</th>
+                        <th>State</th>
+                        <th>Country</th>  
+                        <th>Pincode</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <aura:iteration items="{!v.DisplayResponse}" var="DisplayItem">
+                        <tr>
+                            <td>{!DisplayItem.Name}</td>
+                            <td>{!DisplayItem.Description}</td>
+                            <td>{!DisplayItem.BranchType}</td>
+                            <td>{!DisplayItem.DeliveryStatus}</td>
+                            <td>{!DisplayItem.Circle}</td>
+                            <td>{!DisplayItem.District}</td>
+                            <td>{!DisplayItem.Division}</td>
+                            <td>{!DisplayItem.Region}</td>
+                            <td>{!DisplayItem.Pincode}</td>
+                            <td>{!DisplayItem.State}</td>
+                            <td>{!DisplayItem.Country}</td>
+                            <td>{!DisplayItem.Pincode}</td>
+                        </tr>
+                    </aura:iteration>
+                </tbody>
+            </table>
+        </aura:if>
+        
+    </lightning:card>
+</aura:component>

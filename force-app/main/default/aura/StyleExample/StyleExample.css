@@ -1,0 +1,12 @@
+.THIS .heading{
+    color: blue;
+    font-size: 2em;
+    text-align: center;
+    border: 1px solid;
+    background: rgb(46 132 74);
+}
+.THIS.tiopDivCls{
+    padding: 2%;
+    border: 1px solid #eb7092;
+    background: rgb(224 228 204)
+}

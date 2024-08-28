@@ -1,0 +1,24 @@
+<aura:component controller="compCtrlapex" implements="flexipage:availableForAllPageTypes">
+	 <aura:attribute name="listofRecords" type="string"/>
+    <aura:handler event="c:CEvent1" action="{!c.getrecords}"/>
+    
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="showSpinner" type="Boolean" default="false" />
+    
+    <aura:if isTrue="{!v.showSpinner}">
+        <lightning:spinner alternativeText="Loading" />
+    </aura:if>
+    <div>
+        list of RecordS: {!v.listofRecords}
+        
+        <div style="height: 300px">
+            <lightning:datatable
+                                 keyField="id"
+                                 data="{! v.data }"
+                                 columns="{! v.columns }"
+                                 hideCheckboxColumn="true"/>
+        </div>
+        
+    </div>
+</aura:component>

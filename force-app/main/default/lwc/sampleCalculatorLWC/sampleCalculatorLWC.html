@@ -1,0 +1,48 @@
+<template>
+    
+    <lightning-card title="Calculator In LWC :" icon-name="custom:custom1">
+        <div class="slds-m-around_small">
+        <lightning-input value ={number1}
+                    label="Number 1"
+                    name="number1" 
+                    placeholder="type Number 1 here..."
+                    onchange={handleChangeEvent}
+                    ></lightning-input>
+        <lightning-input value ={number2}
+                    label="Number 2" 
+                    name="number2" 
+                    placeholder="type Number 2 here..."
+                    onchange={handleChangeEvent}
+                    ></lightning-input>
+        
+ <br>
+        <center>
+            <lightning-button 
+                        variant ="brand"
+                        label="Add" 
+                        onclick={handleAdd}
+                        ></lightning-button>
+                        &nbsp;
+            <lightning-button 
+                        variant ="brand"
+                        label="Subc" 
+                        onclick={handleSubc}
+                        ></lightning-button>
+                         &nbsp;
+            <lightning-button 
+                        variant ="brand"
+                        label="Multiplication" 
+                        onclick={handleMulti}
+                        ></lightning-button>
+                         &nbsp;
+            <lightning-button 
+                        variant ="brand"
+                        label="Divison" 
+                        onclick={handleDivision}
+                        ></lightning-button>
+        </center>
+
+    </div>
+    </lightning-card>
+    
+</template>

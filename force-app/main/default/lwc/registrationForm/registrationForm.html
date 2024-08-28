@@ -1,0 +1,12 @@
+<template>
+    <lightning-card>
+        <lightning-input label="First Value" name="firstValue" onchange={changeHandler}></lightning-input>
+        <lightning-input label="Second Value" name="secondValue" onchange={changeHandler}></lightning-input>
+<p>The output is {Result}</p>
+        <lightning-button label="Add" onclick={addition}></lightning-button>
+        <lightning-button label="Sub" onclick={subtraction}></lightning-button>
+        <lightning-button label="Mul" onclick={multiplication}></lightning-button>
+        <lightning-button label="Div" onclick={division}></lightning-button>
+    </lightning-card>
+
+</template>

@@ -1,0 +1,18 @@
+<aura:component >
+    <aura:registerEvent name="msgEvent" type="c.CompLEvent"/>
+    <aura:attribute name="options" type="List" default="[
+                                                        {'label': 'Education', 'value': 'Education'},
+                                                        {'label': 'Banking', 'value': 'Banking'},
+                                                        {'label': 'Apparel', 'value': 'Apparel'},
+                                                        ]"/>
+    <aura:attribute name="SelectedIndustry" type="string" default=""/>
+    
+    <lightning:combobox name="Industry"
+                        label="Choose any one Industry" 
+                        value="{!v.SelectedIndustry}" 
+                        placeholder="Select Industry" 
+                        options="{! v.options }" 
+                        onchange="{! c.handleChange }"/>
+    
+    
+</aura:component>

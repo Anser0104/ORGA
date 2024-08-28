@@ -1,0 +1,36 @@
+<template>
+<lightning-card  variant="Narrow"  title="Search Accounts" icon-name="standard:account">
+     <lightning-layout multiple-rows vertical-align="end" >
+        <lightning-layout-item size="4" padding="around-small">
+            <!--Input text to Search Account-->
+                <lightning-input type="text" label="Enter Account Name To Search"
+                    value={searchValue} 
+                    onchange={handelSearchKey}
+                    onclick={viewRecord}> 
+                </lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item size="2" padding="around-small">
+             <!--Search Button-->
+                <lightning-button label="Search" variant="brand" onclick={SearchAccountHandler}>
+                </lightning-button>
+                
+        </lightning-layout-item>
+        <lightning-layout-item size="1" padding="around-small">
+            <div class="slds-p-around_samll lgc-bg-inverse">
+                    <lightning-button icon-name="utility:download" 
+                                      label="Download as CSV" 
+                                      title="Download CSV File"
+                                      onclick={downloadCSVFile} variant="brand"></lightning-button>
+            </div>
+        </lightning-layout-item>
+        <lightning-layout-item size="12" padding="around-small">
+             <!--List Of Account Using data Tabel-->
+                <div if:true={accountRecords}>
+            <lightning-datatable key-field="id" data={accountRecords} columns ={cols}> 
+
+                </lightning-datatable>
+        </div>
+        </lightning-layout-item>
+    </lightning-layout>
+</lightning-card>
+</template>

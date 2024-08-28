@@ -1,0 +1,22 @@
+<aura:component controller="DmlFromAura">
+    <aura:attribute name="accountName" type="string" default=""/>
+    <aura:attribute name="accountIndustry" type="string" default=""/>
+    <aura:attribute name="accId" type="string" default=""/>
+    <lightning:card title="Insert Account">
+        <aura:set attribute="actions">
+            <lightning:button label="Create Account" onclick="{!c.createAccount}"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            <lightning:input name="AccountName" label="Account Name" value="{!v.accountName}"/>
+            <!--lightning:input name="AccountIndustry" label="Account Industry" value="{!v.accountIndustry}"/-->
+            <lightning:select name="AccountIndustry" label="AccountIndustry" value="{!v.accountIndustry}">
+                <option value="">choose one...</option>
+                <option value="Banking">Banking</option>
+                <option value="Education">Education</option>
+                <option value="Apparel">Apparel</option>
+            </lightning:select>
+            <br/>
+            inserted account id is -->{!v.accId}
+        </p>
+    </lightning:card>
+</aura:component>

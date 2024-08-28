@@ -1,0 +1,5 @@
+<aura:component>
+  <lightning:button variant="brand-outline" label="CLICK ME" title="Brand action" onclick="{!c.handleClick}"/>
+    <br/>
+  <lightning:input aura:id="textId" name="input1" label="Enter some text" title="action"  />    
+</aura:component>

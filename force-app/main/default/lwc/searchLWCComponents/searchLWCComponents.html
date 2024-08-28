@@ -1,0 +1,23 @@
+<template>
+ <lightning-card  variant="Narrow"  title="Email" icon-name="standard:email">
+<lightning-layout pull-to-boundary="medium" class="test">
+        <lightning-layout-item flexibility="auto" padding="horizontal-medium">
+                <div>
+                <lightning-input type="Email" icon-name="Search" class="slds-s-bottom_large" label="Email" placeholder="Type Email Here....." value={searchKey} onchange={handleKeyChange}> </lightning-input>
+                </div>
+        </lightning-layout-item>
+         <lightning-layout-item flexibility="auto" style="margin-top: 24px;">
+        <div>
+                <lightning-button variant="brand-outline" class="slds-m-right_x-small" name="Search" onclick={searchRecordsData} label="Find Records"> </lightning-button>
+        </div>
+        </lightning-layout-item>
+</lightning-layout><br/>
+       <p class="text"> Account Data Table: </p>
+            <lightning-datatable
+                    if:true={showRecords}
+                    key-field="id"
+                    data={Accounts}
+                    columns={columns}>
+            </lightning-datatable>     
+</lightning-card>
+</template>

@@ -1,0 +1,46 @@
+<aura:component controller="IterateRecordsAura" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <!--attribute-->
+    <aura:attribute name="acclist" type="list"/>
+     <aura:attribute name="hasRecords" type="boolean" default="false"/>
+    <aura:handler name="init" value="{!this}" action="{!c.retunAccounts}"/>
+    <aura:attribute name="columns" type="List"/>
+    <aura:attribute name="showRowNumberColumn" type="Boolean" default="false"/>
+   
+    
+    <!--attribute-->
+    
+    <!--Mark up-->
+    <lightning:card  title="List of Account Records">
+        <aura:iteration items="{!v.acclist}" var="acc">
+            {!acc.Id}---{!acc.Name}---{!acc.Industry}<br/>
+        </aura:iteration>
+    </lightning:card>
+    
+    
+    <lightning:card title="List of Account Records">
+        <aura:set attribute="actions">
+          
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            
+             <div class="input-group">
+                <lightning:input type="toggle" label="Show Row Number Column" name="inputRowNumber" checked="{! v.showRowNumberColumn }"/>
+            </div><br/>
+            
+            <div style="height: 300px">
+               <aura:if isTrue="{!v.hasRecords}">
+                <lightning:datatable
+                                     keyField="id"
+                                     data="{! v.acclist }"
+                                     columns="{! v.columns }"
+                                     hideCheckboxColumn="false"
+                                     showRowNumberColumn="{! v.showRowNumberColumn }"/>
+                   <aura:set attribute="else">
+                   No Records has found.
+                   </aura:set>
+              </aura:if>
+            </div>
+        </p>
+    </lightning:card>
+    <!--Mark up-->
+</aura:component>

@@ -1,0 +1,14 @@
+<template>
+    <lightning-card class="slds-p=around_large" variant="Narrow"  title="Disconnected CallBack LWC" icon-name="custom:custom6">
+      <div class="slds-p-horizontal_small">
+          <template if:true={showHide}>
+              <c-getter-property ></c-getter-property>
+          </template>
+          <lightning-button variant="brand" label="Show-hide Get Set" title="Show hide Get Set" 
+          onclick={handleClick}></lightning-button>
+      </div>
+      <div slot="footer">
+          <lightning-badge label="Disconnected CallBack"></lightning-badge>
+      </div>
+    </lightning-card>
+</template>

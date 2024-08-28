@@ -1,0 +1,11 @@
+<aura:component Controller="Call_APEX_from_AURA" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="message" type="string" default="Please hit the button"/>
+    <lightning:card variant="Narrow" title="Message from Aura" iconName="standard:account">
+        <aura:set attribute="actions">
+    <lightning:button variant="brand" label="Call Apex" title="Call Apex" onclick="{! c.handleClick }" />
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            {!v.message}
+        </p>
+    </lightning:card>
+</aura:component>

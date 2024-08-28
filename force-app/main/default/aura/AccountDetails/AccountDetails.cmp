@@ -1,0 +1,70 @@
+<aura:component controller="AccountControllerTest1" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    
+    <aura:attribute name="accountId" type="String" default=""/>
+    <aura:attribute name="account" type="Object"/>
+    <aura:attribute name="popUpModal" type="Boolean" default="false"/>
+    <aura:attribute name="spinner" type="boolean" default="false"/> 
+    
+    <!--"Application Event Handler /-->
+    <aura:handler event="c:AapEventforGetAccountData" action="{!c.handlleAppEvent}" />
+    
+    <!--"Component Event Handler" /-->
+    <aura:handler name="parentEvent" event="c:AccDetailsToParentEvent" action="{!c.handleComponentEvent}"/>
+    
+    <!--"Application Event Register" /-->
+    <aura:registerEvent name="AccAppEvent" type="c:AppEventToAccountRecords" />
+    
+    <lightning:card variant="Narrow" title="AccountRecord Details" iconName="standard:account" >
+        
+        <!--"Spinner on Load Records in AccountRecord Details Comp" /-->
+        <aura:if isTrue="{!v.spinner}">
+            <lightning:spinner alternativeText="Loading" size="medium" />
+        </aura:if>
+        
+        <aura:if isTrue="{!v.accountId ==''}">
+            <p class="slds-m-around_small">Please select the account to display the details.</p>
+        </aura:if>
+        <aura:set attribute = "actions">
+            <aura:if isTrue="{!v.accountId}">
+                
+                <lightning:button class="slds-m-around_small" variant="brand" label="Edit" title="editPopup" onclick="{!c.openPopupModal }"/>
+                
+            </aura:if>
+        </aura:set>
+        <aura:if isTrue="{!v.popUpModal}">
+            <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+                    <header class="slds-modal__header">
+                        <lightning:buttonIcon iconName="utility:close"
+                                              onclick="{! c.closeModel }"
+                                              alternativeText="close"
+                                              variant="border-inverse-black"
+                                              class="slds-modal__close"/>
+                        <h2>Edit Record Details</h2>
+                    </header>
+                    <div class="slds-modal__content slds-p-around_medium" >
+                        <c:AccountdatawithEditMode aura:id="accdetailsId" accRecordId="{!v.accountId}" /> 
+                    </div>
+                    
+                    <footer class="slds-modal__footer">
+                        <lightning:button label   ="Save"
+                                          variant ="brand-outline"
+                                          title   ="SAVE"
+                                          onclick ="{!c.saveDetails}"/>
+                        <lightning:button variant="neutral"
+                                          label="Cancel"
+                                          title="Cancel"
+                                          onclick="{! c.closeModel }"/>
+                        
+                    </footer>
+                </div>
+            </section>   
+        </aura:if>
+        <lightning:input name="Name" label= "Account Name" disabled="true" value="{!v.account.Name}" class="slds-m-left_small"  />
+        <lightning:input name="email" label= "Email" disabled="true" value="{!v.account.Email__c}" class="slds-m-around_small"  />
+        <lightning:input name="AnnualRevenue" label= "Annual Revenue" disabled="true" value="{!v.account.AnnualRevenue}" class="slds-m-around_small"  />
+        
+        
+    </lightning:card>
+    
+</aura:component>

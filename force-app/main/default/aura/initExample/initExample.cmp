@@ -1,0 +1,5 @@
+<aura:component >
+    <aura:attribute name="message" type="string" default=""/>
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    message --{!v.message}
+</aura:component>

@@ -1,0 +1,4 @@
+<aura:event type="APPLICATION" description="Event template">
+    <aura:attribute name="selectedPostalType1" type="String"/>
+    <aura:attribute name="PostalTypes" type="String"/>
+</aura:event>

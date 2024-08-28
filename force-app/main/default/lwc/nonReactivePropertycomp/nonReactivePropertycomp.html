@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="LWC Property Demo" icon-name="custom:custom77">
+        <div class="slds-m-around_small">
+            <lightning-input value={message} label="Non-Reactive Property" placeholder="Private Property" onchange={onchangeHandler}>
+            </lightning-input>
+        </div>
+        <div class="slds-m-around_small">
+            message is : {message}
+        </div>
+    </lightning-card>
+    <br/>
+    <lightning-card title="LWC Property Demo1" icon-name="custom:custom85">
+        <div class="slds-m-around_small">
+            <lightning-input value={message1} label="Reactive Property" placeholder="Private Property" onchange={onchange2}>
+            </lightning-input>
+        </div>
+        <div class="slds-m-around_small">
+            message2 is : {message1}
+        </div>
+    </lightning-card>
+</template>

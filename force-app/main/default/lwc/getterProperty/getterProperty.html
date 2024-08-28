@@ -1,0 +1,21 @@
+<template>
+    <lightning-card title="LWC Getter Property Demo" icon-name="custom:custom7">
+        <div class="slds-m-around_medium">
+            <lightning-input value={message1} 
+                     label="Getter Property" placeholder="getterProperty" onchange={handleChange}>            
+            </lightning-input>
+        </div>
+
+        <div class="slds-m-around_medium">
+                Message is : {message1}
+        </div>
+
+        <div class="slds-m-around_medium">
+            Name is : {name}
+    </div>
+
+    <div class="slds-m-around_medium">
+        Modified Message is : {modifyedMessage1}
+</div>
+    </lightning-card>
+</template>

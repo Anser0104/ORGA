@@ -1,0 +1,19 @@
+<aura:component controller="compCtrlapex">
+    <aura:attribute name="SelectedValue" type="string"/>
+    <c:ComNotifierE msgEvent="{!c.getdatahere}"/>
+    
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    
+    <div>
+        SelectedValue-->{!v.SelectedValue}
+        <div style="height: 300px">
+            <lightning:datatable
+                                 keyField="id"
+                                 data="{! v.data }"
+                                 columns="{! v.columns }"
+                                 hideCheckboxColumn="true"/>
+        </div>
+        
+    </div>
+</aura:component>

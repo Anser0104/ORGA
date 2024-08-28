@@ -1,0 +1,9 @@
+<aura:component >
+    <aura:attribute name="showChildComponenet" type="boolean" default="false"/>
+   	
+    <lightning:button variant="brand" label="show Child" title="show Child" onclick="{!c.handleClick}" />
+    <br/>
+    <aura:if isTrue="{!v.showChildComponenet}">
+        <c:ChildComponentBoundExpression showChildComponenet="{!v.showChildComponenet}"/>
+    </aura:if>
+</aura:component>

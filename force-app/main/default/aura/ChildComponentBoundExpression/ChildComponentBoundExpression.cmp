@@ -1,0 +1,5 @@
+<aura:component >
+	<aura:attribute name="showChildComponenet" type="boolean" default="false"/>
+    text from child component
+    <lightning:button variant="brand" label="click me" title="click me" onclick="{!c.handleClick}" />
+</aura:component>

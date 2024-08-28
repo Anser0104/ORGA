@@ -1,0 +1,18 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="msg" type="string"/>	
+    <lightning:card title="Parent Section">
+        <aura:set attribute="actions">
+            <lightning:button label="Click me" onclick="{!c.callmethod}"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            <lightning:input
+                             value="{!v.msg}"
+                             name="inline-search-input"
+                             label="Type here.."
+                             type="search"
+                             variant="label-hidden"
+                             />
+        </p>
+    </lightning:card>
+    <c:Childcompo aura:id="childId"/>
+</aura:component>

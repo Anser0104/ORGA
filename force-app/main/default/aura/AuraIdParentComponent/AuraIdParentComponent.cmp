@@ -1,0 +1,14 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="someText" type="string" default=""/>
+    
+    <lightning:card title="Aura Method Parent Component">
+        <aura:set attribute="actions">
+            <lightning:button label="Click Me" onclick="{!c.handleClick}"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            <lightning:input name="input3" value="{!v.someText}" label="Text field with a placeholder" placeholder="type here..."/>
+        </p>
+    </lightning:card>
+    
+    <c:AuraIdChildComponent aura:id="childId" />
+</aura:component>

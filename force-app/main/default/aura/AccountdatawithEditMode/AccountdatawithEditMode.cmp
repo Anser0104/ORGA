@@ -1,0 +1,25 @@
+<aura:component controller="AccountControllerTest1" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global">
+    <aura:attribute name="accRecordId" type="String" default="" />
+    <aura:attribute name="Account" type="Object" />
+    <aura:attribute name="spinner" type="boolean" default="false"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.loadAccountDetails}" />
+    <!--"Component Event Register"-->
+    <aura:registerEvent name="parentEvent" type="c:AccDetailsToParentEvent"/>
+    
+    <aura:method name="accMethod" action="{!c.saveAccDetails}" access="public">
+        <aura:attribute name="acctId" type="Id" />
+    </aura:method>
+    
+    <lightning:card variant="Narrow" title="AccountRecord Details" iconName="standard:account" >
+        
+        <aura:if isTrue="{!v.spinner}">
+            <lightning:spinner alternativeText="Loading" size="medium" />
+        </aura:if>
+        
+        <lightning:input name="AccountName" label="Accout name" value="{!v.Account.Name}" class="slds-m-around_small"/>
+        <lightning:input name="Email" label="Email" value="{!v.Account.Email__c}" class="slds-m-around_small"/>
+        <lightning:input name="AnnualRevenue" label="Annual Revenue" value="{!v.Account.AnnualRevenue}" class="slds-m-around_small"/>
+    </lightning:card>
+    
+</aura:component>

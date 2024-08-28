@@ -1,0 +1,21 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="selectPostalopt" type="String" />
+    <aura:attribute name="pincode" type="String" />
+    <aura:registerEvent name="appPostalEvent" type="c:postalAPPEvent"/>
+    <lightning:card class="slds-m-around_small"> 
+        <lightning:select name="selectPostalType" label="Choose any one PostalType" value="{!v.selectPostalopt}" required="true" class="slds-m-around_small">
+            <option value="">choose one...</option>
+            <option value="pincode">pincode</option>
+            <option value="branch Name">branch Name</option>
+        </lightning:select>
+        <aura:if isTrue="{!v.selectPostalopt == 'pincode'}">
+            <lightning:input  type="text" value="{!v.pincode}" class="slds-m-around_small" label="Pincode" placeholder="Enter the Pincode Here..."/><br/>
+            <lightning:button variant="brand" label="Search" class="slds-m-left_small" title="Brand action" onclick="{!c.handleClick }"/>
+        </aura:if>
+		      
+        <aura:if isTrue="{!v.selectPostalopt == 'branch Name'}">
+            <c:postalBranchName PostalType ="{!v.selectPostalopt}"/>
+            <!--lightning:input  type="text" value="{!v.branchName}" label="Branch Name" placeholder="Enter the branch Name Here..."/--><br/>
+        </aura:if>
+    </lightning:card>
+</aura:component>

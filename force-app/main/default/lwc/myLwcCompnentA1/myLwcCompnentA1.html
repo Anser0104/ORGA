@@ -1,0 +1,22 @@
+<!--  
+@Description        :Creating Contacts from Quick Action
+@Author             :Anser basha
+@Group              :
+@Last modified on   :10-10-2022
+@Last modified BY   :Anser basha
+Modifief log
+Ver  Date           Author          Modification
+5.5  30-09-2022     Anser basha     Initial Version
+-->
+<template>
+<lightning-card title="Create Contact" icon-name="standard:contact" >
+    
+    <p class="slds-p-horizontal_small">
+        <lightning-record-form object-api-name={Contact}
+        fields={fields} onsuccess={onContactSave}>
+        
+        </lightning-record-form>
+    </p>
+   
+</lightning-card>
+</template>

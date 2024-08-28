@@ -1,0 +1,16 @@
+<template>
+    <lightning-card  title={titleValue}>
+        
+        <template for:each={courseList} for:item="course">
+            <p key={course}>
+                    Hi<br/>
+            </p>
+        </template>
+        <template if:true={displayText}>
+                    <p>
+                       I am coming from condition redenring
+                    </p>
+        </template>
+       
+    </lightning-card>
+</template>

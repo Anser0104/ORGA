@@ -1,0 +1,21 @@
+<aura:component controller="CreateAccountController" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global">
+    
+    <aura:attribute name="accountName" type="String" />
+    <aura:attribute name="email" type="String" />
+    <aura:attribute name="annualRevenue" type="Decimal" />
+
+    <div>
+        <label for="accountName">Account Name:</label>
+        <lightning:input type="text" id="accountName" aura:id="accountName" value="{!v.accountName}" />
+    </div>
+    <div>
+        <label for="email">Email:</label>
+        <lightning:input type="text" id="email" aura:id="email" value="{!v.email}" />
+    </div>
+    <div>
+        <label for="annualRevenue">Annual Revenue:</label>
+        <lightning:input type="number" id="annualRevenue" aura:id="annualRevenue" value="{!v.annualRevenue}" />
+    </div><br/>
+    <lightning:button variant="success"   label="Create Account"  onclick="{!c.createAcc}"/>
+    
+</aura:component>

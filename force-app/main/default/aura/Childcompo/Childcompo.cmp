@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="Parentmsg" type="string"/>
+    
+    <aura:method name="Childjsmethod" action="{!c.jsmethod}" access="public">
+    <aura:attribute name="message" type="string"/>
+    </aura:method>
+    
+     <lightning:card title="Child Section">
+        <p class="slds-p-horizontal_small">
+          Parent Message==> {!v.Parentmsg}
+        </p>
+    </lightning:card>
+</aura:component>

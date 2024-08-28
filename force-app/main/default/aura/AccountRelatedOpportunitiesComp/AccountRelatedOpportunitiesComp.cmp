@@ -1,0 +1,107 @@
+<aura:component Controller ="RelatedOptyController"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                
+                access="global" >
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <aura:attribute name="recordId" type="Id" />
+    <aura:attribute name="Opportunitylist" type="List"/>
+    <aura:attribute name="popup" type="boolean" default="false"/>
+    <aura:attribute name="Header" type="String"/>
+    <aura:attribute name="recIds" type="Id"/>
+    <aura:attribute name="data" type="String"/>
+    <aura:attribute name="columns" type="List"/>
+    
+    
+    <aura:handler name="init" value="{!this}" action="{!c.onload}"/>
+    
+    <lightning:card>
+        <center><h1 class="headerstyle">{!v.Header}</h1></center>
+        <table class="slds-table slds-table_cell-buffer slds-table_bordere slds-table_col-bordered"
+               aria-label="Example table of Opportunities with vertical borders">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <span class="slds-truncate" >Select</span>
+                    </th>
+                    <th class="" scope="col">
+                        <span class="slds-truncate" >Opportunity Name</span>
+                    </th>
+                    <th class="" scope="col">
+                        <span class="slds-truncate" >Close Date</span>
+                    </th>
+                    <th class="" scope="col">
+                        <span class="slds-truncate" >Stage</span>
+                    </th>
+                    <th class="" scope="col">
+                        <span class="slds-truncate" >RecordId</span>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <aura:iteration items="{!v.Opportunitylist}" var="oppo">
+                    <tr class="slds-hint-parent">
+                        <td><lightning:input type="checkbox" label="Checkbox" name="blue" 
+                                             value="{!oppo.isSelect}" onclick="{!c.handleSelect}"></lightning:input>
+                        </td>
+                        <td data-label="Opportunity Name">
+                            <div class="slds-truncate">
+                                <a href="https://hcl518-dev-ed.lightning.force.com/lightning/r/0015g00000YUcnvAAD/related/Opportunities/view" >{!oppo.oppty.Name}</a>
+                            </div>
+                        </td>
+                        <td data-label="CloseDate">
+                            <div class="slds-truncate" >{!oppo.oppty.CloseDate}</div>
+                        </td>
+                        <td data-label="StageName">
+                            <div class="slds-truncate" >{!oppo.oppty.StageName}</div>
+                        </td>
+                        <td data-label="Id">
+                            <div class="slds-truncate" >{!oppo.oppty.Id}</div>
+                        </td>
+                        <td data-label="Action">
+                            <lightning:button label="Edit" iconName="utility:edit" iconPosition="left" value="{!oppo.oppty.Id}" variant="brand" onclick="{!c.clickhandle}" />
+                        </td>
+                    </tr>
+                    <aura:if isTrue="{!v.popup}">
+                        Popup code:
+                        <!-- Modal/Popup Box starts here-->
+                        <section role="dialog" tabindex="-1" aria-labelledby="modal-heading-01" 
+                                 aria-modal="true" aria-describedby="modal-content-id-1" class="slds-modal slds-fade-in-open">
+                            <div class="slds-modal__container">
+                                <!-- Modal/Popup Box Header-->
+                                <header class="slds-modal__header">
+                                    <lightning:buttonIcon iconName="utility:close"
+                                                          onclick="{! c.closeModal }"
+                                                          alternativeText="close"
+                                                          variant="bare-inverse"
+                                                          class="slds-modal__close"/>
+                                    <h2 id="modal-heading-01" class="slds-text-heading_small slds-hyphenate">Edit Opportunity Record</h2>
+                                </header>
+                                <!--Modal/Popup Box Body-->
+                                <div class="slds-modal__content slds-p-around_medium" id="modal-content-id-1">
+                                    <lightning:recordEditForm recordId="{!oppo.oppty.Id}" objectApiName="Opportunity">
+                                        <lightning:messages />
+                                        <lightning:inputField fieldName="Name" />
+                                        <lightning:inputField fieldName="CloseDate" />
+                                        <lightning:inputField fieldName="StageName" />
+                                        
+                                    </lightning:recordEditForm>
+                                   
+                                </div>
+                                <!--Modal/Popup Box Footer-->
+                                <footer class="slds-modal__footer">
+                                    <center>
+                                        <lightning:button  variant="destructive" type="cancel" name="cancel" label="Cancel" onclick="{! c.closeModal }" />
+                                        <lightning:button  variant="brand" type="Save" name="update" label="Save" />
+                                    </center>
+                                </footer>
+                            </div>
+                        </section>
+                        <div class="slds-backdrop slds-backdrop_open"></div>
+                    </aura:if>
+                </aura:iteration>
+            </tbody>
+        </table>    
+        
+    </lightning:card>
+</aura:component>

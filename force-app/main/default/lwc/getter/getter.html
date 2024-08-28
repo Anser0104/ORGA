@@ -1,0 +1,15 @@
+<template>
+    <lightning-card  variant="Narrow"  title="Registration Form" icon-name="standard:account">
+    
+        
+        <div class="slds-p-around_medium lgc-bg">
+            <lightning-input label="First Name" name="firstName" onchange={changHandler} required></lightning-input>
+        
+            <lightning-input label="Last Name" name="lastName" onchange={changHandler} required></lightning-input>
+
+            {FullName}
+        </div>
+        
+    
+</lightning-card>
+</template>

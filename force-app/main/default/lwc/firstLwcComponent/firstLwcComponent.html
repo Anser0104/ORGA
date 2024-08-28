@@ -1,0 +1,19 @@
+<template>
+    <lightning-card  title={titleValue}>
+        <div class="slds-p-around_medium lgc-bg">
+        <template for:each={courseList} for:item="course">
+                <P key={course}>
+                    Hello to LWC...
+                </P>
+        </template>
+            <template iterator:it={courseList}>
+                <p key={it.value}>
+                    {it.value}
+                </p>
+            </template>
+                <template if:true={display}>
+                    <p> I am coming from Conditional Rendering</p>
+                </template>
+            </div>
+    </lightning-card>
+</template>

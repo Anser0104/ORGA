@@ -1,0 +1,17 @@
+<aura:component Controller ="AccountsRcordswithAgricultureType"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" 
+                			access="global" >
+    
+    <aura:attribute name="data" type="object"/>
+    <aura:attribute name="columns" type="List"/>
+    
+	<aura:handler name="init" value="{!this}" action="{!c.onload}"/>
+    <lightning:card variant="Narrow"  iconName="standard:account">
+    
+        <lightning:datatable
+                keyField="id"
+                data="{!v.data}"
+                columns="{!v.columns}"
+                hideCheckboxColumn="true"/>
+    </lightning:card>
+</aura:component>

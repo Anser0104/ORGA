@@ -1,0 +1,15 @@
+<aura:component controller="callApexClassFromAura">
+    <aura:attribute name="messageFromApex" type="string" default="Please hit the button"/>
+    
+    <lightning:card title="Apex Class message">
+        <aura:set attribute="actions">
+            <lightning:button label="Call Apex" title="Call Apex" onclick="{!c.handleClick}"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+            {!v.messageFromApex}
+        </p>
+    </lightning:card>
+    
+    <br/>
+    
+</aura:component>

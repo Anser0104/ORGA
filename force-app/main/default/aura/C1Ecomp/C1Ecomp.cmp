@@ -1,0 +1,25 @@
+<aura:component implements="flexipage:availableForAllPageTypes">
+    <aura:registerEvent name="msgE" type="c.CEvent1"/>
+    <aura:attribute name="SelecteRecord" type="string" default=""/>
+    
+    <lightning:card variant="Narrow" title="Account Records" iconName="standard:account">
+        
+        <aura:set attribute="actions">
+            <p class="slds-p-horizontal_small">
+                <lightning:input
+                                 style="width:300px;"
+                                 name="inline-search-input"
+                                 type="search"
+                                 label="Selecte Record"
+                                 variant="label-hidden"
+                                 value="{!v.SelecteRecord}"
+                                 onchange="{!c.handleChange }"
+                                 />
+            </p>
+        </aura:set>
+        
+    </lightning:card>
+    
+    
+    
+</aura:component>

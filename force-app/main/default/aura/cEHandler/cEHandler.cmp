@@ -1,0 +1,18 @@
+<aura:component controller="cECtrl">
+    <aura:attribute name="SelectedOptionValue" type="string"/>
+    
+    <aura:attribute name="data" type="Object"/>
+    <aura:attribute name="columns" type="List"/>
+    
+    <c:cENotifier msgEvent="{!c.getData}"/>
+    <div>
+        SelectedOptionValue--->{!v.SelectedOptionValue}
+        <div style="height: 300px">
+            <lightning:datatable
+                                 keyField="id"
+                                 data="{! v.data }"
+                                 columns="{! v.columns }"
+                                 hideCheckboxColumn="true"/>
+        </div>
+    </div>
+</aura:component>

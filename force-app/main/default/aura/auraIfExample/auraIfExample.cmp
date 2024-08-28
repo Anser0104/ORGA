@@ -1,0 +1,12 @@
+<aura:component >
+    <aura:attribute name="isTrueVariable" type="boolean" default="false"/>
+    
+    <aura:if isTrue="{!v.isTrueVariable}">
+        this will be visible when the variable is true
+        <aura:set attribute="else">
+            this will be visible when the variable is false
+        </aura:set>
+    </aura:if><br/>
+    <lightning:button variant="brand" label="click me" title="click me" onclick="{! c.changeValue }" />
+    
+</aura:component>

@@ -1,0 +1,17 @@
+<template>
+    <lightning-card title={titleValue}>
+        <div class="slds-p-around_medium lgc-bg">
+        <lightning-input label="First Value" name="firstValue" onchange={changeHandler}></lightning-input>
+        <lightning-input label="Second Value" name="secondValue" onchange={changeHandler}></lightning-input>
+<p>The output is ==> {Result}</p>
+            <div class="slds-p-around_medium lgc-bg">
+        <lightning-button label="Add" onclick={addition} ></lightning-button>
+        <lightning-button label="Sub" onclick={subtraction} style="margin-left:10px;"></lightning-button>
+        <lightning-button label="Mul" onclick={multiplication} style="margin-left:10px;"></lightning-button>
+        <lightning-button label="Div" onclick={division} style="margin-left:10px;"></lightning-button>
+        </div>
+    </div>
+    </lightning-card>
+    
+
+</template>

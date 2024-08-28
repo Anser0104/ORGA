@@ -1,0 +1,57 @@
+<aura:component controller="PincodeController"  implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="pincode" type="string" />
+    <aura:attribute name="pincodeList" type="List" />
+    <aura:attribute name="DisplayResponse" type="List" />
+    <aura:attribute name="showBody" type="boolean" default="false"/>
+    <aura:attribute name="PostalType" type="String"/>
+    <aura:handler event="c:postalAPPEvent" action="{!c.handleClick}" />
+    <lightning:card class="slds-m-around_medium">
+        <!--lightning:input  type="search" value="{!v.pincode}" placeholder="Enter the Pincode Here..."/><br/>
+        
+        <lightning:button variant="brand" label="Search" title="Brand action" onclick="{! c.handleClick }"/--> 
+        <div class="slds-m-around_medium">        
+            <aura:if isTrue="{!v.PostalType == 'pincode'}" >
+                Number of PostOffices: {!v.DisplayResponse.length} <br/>
+                Selected Postal Type: {!v.PostalType}<br/>
+                Entered Postal Pincode: {!v.pincode}<br/><br/>
+                <aura:if isTrue="{!v.showBody}">
+                    <table border="2" class="slds-table slds-table_cell-buffer slds-table_bordered slds-table_col-bordered">
+                        <thead>
+                            <tr>
+                                <th>Block</th>
+                                <th>BranchType</th>
+                                <th>Circle</th>
+                                <th>Country</th>
+                                <th>DeliveryStatus</th>
+                                <th>District</th>
+                                <th>Division</th>
+                                <th>Name</th>
+                                <th>Pincode</th>
+                                <th>Region</th>
+                                <th>State</th>  
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            <aura:iteration items="{!v.DisplayResponse}" var="DisplayItem">
+                                <tr>
+                                    <td>{!DisplayItem.Block}</td>
+                                    <td>{!DisplayItem.BranchType}</td>
+                                    <td>{!DisplayItem.Circle}</td>
+                                    <td>{!DisplayItem.Country}</td>
+                                    <td>{!DisplayItem.DeliveryStatus}</td>
+                                    <td>{!DisplayItem.District}</td>
+                                    <td>{!DisplayItem.Division}</td>
+                                    <td>{!DisplayItem.Name}</td>
+                                    <td>{!DisplayItem.Pincode}</td>
+                                    <td>{!DisplayItem.Region}</td>
+                                    <td>{!DisplayItem.State}</td>
+                                </tr>
+                            </aura:iteration>
+                        </tbody>
+                    </table>
+                </aura:if>  
+            </aura:if>
+        </div>
+    </lightning:card>
+</aura:component>

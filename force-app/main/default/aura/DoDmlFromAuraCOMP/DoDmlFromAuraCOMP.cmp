@@ -1,0 +1,29 @@
+<aura:component controller="DoDmlFromAura" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="Salutation" type="string" default=""/>
+    <aura:attribute name="LastName" type="string" default=""/>
+    <aura:attribute  name="AccountId" type="Id" default=""/>
+    <aura:attribute name="conId" type ="Id" default=""/>
+    
+    <lightning:card variant="Narrow" title="Insert Contact" iconName="standard:account">
+        <aura:set attribute="actions">
+            <lightning:button label="Create Contact" onclick="{!C.CreateContact}"/>
+        </aura:set>
+        <p class="slds-p-horizontal_small">
+      
+            <lightning:select name="ContactSalutation" label="Contact Salutation" value="{!V.Salutation}">
+                <option value="">--None--</option>
+                <option value="Mr.">Mr.</option>
+                <option value="Ms.">Ms.</option>
+                <option value="Mrs.">Mrs.</option>
+                <option value="Dr.">Dr.</option>
+                <option value="Prof.">Prof.</option>   
+            </lightning:select>
+             <lightning:input name="ContactLastName" label="Last Name" value="{!v.LastName}"/>
+            <lightning:input hasRecordId ="AccountId" name="AccountName" label="Account Name" value ="{!v.AccountId}"/>
+          
+        <br/>
+            
+          Inserted Contact record Id is -->{!v.conId}
+        </p>
+    </lightning:card>
+</aura:component>

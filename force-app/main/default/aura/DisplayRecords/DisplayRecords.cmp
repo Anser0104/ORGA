@@ -1,0 +1,16 @@
+<aura:component controller="DisplayRecords"
+                implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <aura:attribute name="data" type="List"/>
+    <aura:attribute name="sObjName" type="string"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}"/>
+    <lightning:card title="{!v.sObjName}">
+        <p class="slds-p-horizontal_small">
+            <aura:iteration items="{!v.data}" var="item">
+                {!item.Id} --> {!item.Name}<br/>
+            </aura:iteration>
+        </p>
+    </lightning:card>
+    
+    
+</aura:component>

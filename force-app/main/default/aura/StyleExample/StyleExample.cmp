@@ -1,0 +1,22 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,forceCommunity:availableForAllPageTypes,force:lightningQuickAction" access="global" >
+    <div id="topDivId" class="slds-p-around_large slds-border_top slds-border_right slds-border_bottom slds-border_left">
+        <div class="slds-box slds-theme_success">
+            This is the Page Tile
+        </div>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col">
+                <lightning:input name="input3" label="Text field with a placeholder" placeholder="type here..."/>
+            </div>
+            <div class="slds-col">
+                <lightning:input name="input3" label="Text field with a placeholder" placeholder="type here..."/>
+            </div>
+        </div>
+        <div class="slds-p-top_large">
+        	<div class="slds-box slds-theme_shade">
+            <lightning:button label="Neutral" title="Neutral action" onclick="{! c.handleClick }"/>
+            <lightning:button variant="brand" label="Brand" title="Brand action" onclick="{! c.handleClick }" />
+        </div>
+        </div>
+        
+    </div>
+</aura:component>
